@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   //TODO Secret API Key
-  final telegram = Telegram('API Key');
+  final telegram = Telegram('8808192243:AAGf-zrWiMPKSTkcAF7lfyDBFCyHzvZMjnw');
   TeleDart teleDart;
   String botName = '';
   var msgId = 0;
