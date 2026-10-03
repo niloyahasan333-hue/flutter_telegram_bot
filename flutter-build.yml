@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 # পুরোনো এনভায়রনমেন্টের জন্য
 
     steps:
       - name: Checkout Repository
@@ -15,18 +15,18 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: '17'
+          java-version: '11' # পুরোনো ফ্লাটারের উপযোগী জাভা
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0'
+          flutter-version: '2.10.5' # প্রজেক্টের সাথে মিল রেখে পুরোনো ফ্লাটার ভার্সন
 
       - name: Get Dependencies
         run: flutter pub get
 
       - name: Build APK
-        run: flutter build apk --release
+        run: flutter build apk --release --no-sound-null-safety # নাল সেফটি এরর এড়ানোর জন্য
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
